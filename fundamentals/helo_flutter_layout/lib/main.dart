@@ -67,6 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter += -1;
+    });
+  }
+
+  void _reset() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -102,22 +114,39 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'HAI TEMAN AYO TOSSS',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w500,
+              'HAI TEMAN AYO TOSSS',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-            ),
+            const SizedBox(height: 30),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: _incrementCounter,
+                  child: const Icon(Icons.front_hand),
+                ),
+                const SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: _decrementCounter,
+                  child: Text("ga mau wleee"),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: _incrementCounter,
-              child: const Icon(Icons.front_hand),
+              onPressed: _reset,
+              child: Text("Reset"),
             ),
           ],
         ),
